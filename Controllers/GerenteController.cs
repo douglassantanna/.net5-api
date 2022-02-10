@@ -24,7 +24,7 @@ namespace apiRestDotNet5.Controllers
         [HttpGet]
         public IActionResult RecuperarGerentes()
         {
-            return Ok(_context.Cinemas);
+            return Ok(_context.Gerentes);
         }
 
         [HttpGet("{id}")]

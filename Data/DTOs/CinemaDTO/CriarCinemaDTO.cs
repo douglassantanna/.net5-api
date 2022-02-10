@@ -8,6 +8,8 @@ namespace apiRestDotNet5.Data.DTOs
         public string Nome { get; set; }
         public int EnderecoId { get; set; }
         
+        public int GerenteId { get; set; }
+        
         
     }
 }
