@@ -48,3 +48,5 @@ C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\System.Security.Cryp
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\AutoMapper.dll
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\Castle.Core.dll
+C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll

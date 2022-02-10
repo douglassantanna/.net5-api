@@ -23,7 +23,7 @@ namespace apiRestDotNet5
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("FilmeConnection")));
+            services.AddDbContext<DataContext>(options => options.UseLazyLoadingProxies().UseMySQL(Configuration.GetConnectionString("FilmeConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

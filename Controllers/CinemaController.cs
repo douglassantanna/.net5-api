@@ -22,7 +22,7 @@ namespace apiRestDotNet5.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Cinema> RecuperarCinemas([FromQuery] string nomeDoFilme)
+        public IEnumerable<Cinema> RecuperarCinemas([FromQuery] string nomeDoCinema)
         {
             return _context.Cinemas;
         }
