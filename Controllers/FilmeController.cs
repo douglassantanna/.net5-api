@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using apiRestDotNet5.Data;
 using apiRestDotNet5.Data.DTOs;
@@ -32,9 +33,24 @@ namespace apiRestDotNet5.Controllers
         }
 
         [HttpGet]
-        public IActionResult RecuperarFilmes()
+        public IActionResult RecuperarFilmes([FromQuery] int? classificacaoEtaria = null)
         {
-            return Ok(_context.Filmes);
+            List<Filme> filmes;
+            if(classificacaoEtaria == null)
+            {
+               filmes = _context.Filmes.ToList();
+            }
+            else
+            {
+                filmes = _context
+                .Filmes.Where(filme => filme.ClassificacaoEtaria <= classificacaoEtaria).ToList();
+            }
+            if(filmes != null)
+            {
+                List<ConsultarFilmeDTO> filmeDTO = _mapper.Map<List<ConsultarFilmeDTO>>(filmes);
+                return Ok(filmeDTO);
+            }
+            return NotFound();
         }
         [HttpPost]
         public IActionResult AdicionarFilme([FromBody] CriarFilmeDTO filmeDTO)
