@@ -9,42 +9,42 @@ namespace apiRestDotNet5.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GerenteController : ControllerBase
+    public class SessaoController : ControllerBase
     {
         private DataContext _context;
         private IMapper _mapper;
 
-        public GerenteController(DataContext context, IMapper mapper)
+        public SessaoController(DataContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public IActionResult RecuperarGerentes()
+        public IActionResult RecuperarSessoes()
         {
-            return Ok(_context.Gerentes);
+            return Ok(_context.Sessoes);
         }
 
         [HttpGet("{id}")]
-        public IActionResult RecuperarGerentePorId(int id)
+        public IActionResult RecuperarSessaoPorId(int id)
         {
-            Gerente gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
-            if (gerente != null)
+            Sessao sessao = _context.Sessoes.FirstOrDefault(sessao => sessao.Id == id);
+            if (sessao != null)
             {
-                ConsultarGerenteDTO gerenteDto = _mapper.Map<ConsultarGerenteDTO>(gerente);
-                return Ok(gerenteDto);
+                ConsultarSessaoDTO sessaoDto = _mapper.Map<ConsultarSessaoDTO>(sessao);
+                return Ok(sessaoDto);
             }
             return NotFound();
         }
         
         [HttpPost]
-        public IActionResult AdicionarGerente([FromBody] CriarGerenteDTO gerenteDto)
+        public IActionResult AdicionarSessao([FromBody] CriarSessaoDTO sessaoDto)
         {
-            Gerente gerente = _mapper.Map<Gerente>(gerenteDto);
-            _context.Gerentes.Add(gerente);
+            Sessao sessao = _mapper.Map<Sessao>(sessaoDto);
+            _context.Sessoes.Add(sessao);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(RecuperarGerentePorId), new { Id = gerente.Id }, gerente);
+            return CreatedAtAction(nameof(RecuperarSessaoPorId), new { Id = sessao.Id }, sessao);
         }
 
         // [HttpPut("{id}")]

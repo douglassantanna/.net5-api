@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace apiRestDotNet5.Models
 {
@@ -17,6 +18,7 @@ namespace apiRestDotNet5.Models
         [Range(1, 600, ErrorMessage = "Mínimo de 1 e máximo de 600")]
         public int Duracao { get; set; }
         public int ClassificacaoEtaria { get; set; }
+        [JsonIgnore]
         public virtual List<Sessao> Sessoes { get; set; } 
     }
 }

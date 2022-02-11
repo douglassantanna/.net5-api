@@ -12,5 +12,6 @@ namespace apiRestDotNet5.Data.DTOs
         public string Genero { get; set; }
         [Range(1, 600, ErrorMessage = "Mínimo de 1 e máximo de 600")]
         public int Duracao { get; set; }
+        public int ClassificacaoEtaria { get; set; }
     }
 }
