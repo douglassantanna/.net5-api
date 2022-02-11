@@ -22,9 +22,23 @@ namespace apiRestDotNet5.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Cinema> RecuperarCinemas([FromQuery] string nomeDoCinema)
+        public IActionResult RecuperarCinemas([FromQuery] string nomeDoFilme)
         {
-            return _context.Cinemas;
+            List<Cinema> cinemas = _context.Cinemas.ToList();
+            if(cinemas == null)
+            {
+                return NotFound();
+            }
+            if(!string.IsNullOrEmpty(nomeDoFilme))
+            {
+                IEnumerable<Cinema> query = from cinema in cinemas
+                where cinema.Sessoes.Any(sessao =>
+                sessao.Filme.Titulo == nomeDoFilme)
+                select cinema;
+                cinemas = query.ToList();
+            }
+            List<ConsultarCinemaDTO> cinemaDTO = _mapper.Map<List<ConsultarCinemaDTO>>(cinemas);
+            return Ok(cinemaDTO);
         }
 
         [HttpGet("{id}")]
