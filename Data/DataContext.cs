@@ -20,10 +20,21 @@ namespace apiRestDotNet5.Data
                 .HasOne(cinema => cinema.Gerente)
                 .WithMany(gerente => gerente.Cinemas)
                 .HasForeignKey(cinema => cinema.GerenteId);
+            
+            builder.Entity<Sessao>()
+                .HasOne(sessao => sessao.Filme)
+                .WithMany(filme => filme.Sessoes)
+                .HasForeignKey(sessao => sessao.FilmeID);
+
+            builder.Entity<Sessao>()
+                .HasOne(sessao => sessao.Cinema)
+                .WithMany(cinema => cinema.Sessoes)
+                .HasForeignKey(sessao => sessao.CinemaID);
         }
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Gerente> Gerentes { get; set; }
+        public DbSet<Sessao> Sessoes { get; set; }
     }
 }

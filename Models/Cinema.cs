@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace apiRestDotNet5.Models
@@ -12,9 +13,7 @@ namespace apiRestDotNet5.Models
         public virtual Endereco Endereco { get; set; }
         public int EnderecoID { get; set; }
         public virtual Gerente Gerente { get; set; }
-        
         public int GerenteId { get; set; }
-        
-        
+        public virtual List<Sessao> Sessoes { get; set; }
     }
 }
