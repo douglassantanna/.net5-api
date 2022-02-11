@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sS8LcXKvg9Qwcra15prwWbMS64Y0V0VPyLvJ4ccBnWr3AUUqbhhzZsrhVyG6opJu9N+jXzUw5748yAbo/AIrGg==",
+  "dgSpecHash": "2kfC/X6gqJVHBfButv+/5/EqBx6BPee47Y/XVAYl2L4BWD2QV6t11D+scIOCntyleXNhc5F9kTApbqSySoBLxQ==",
   "success": true,
   "projectFilePath": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\apiRestDotNet5.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
+    "C:\\Users\\DouglasCraici\\.nuget\\packages\\fluentresults\\2.5.0\\fluentresults.2.5.0.nupkg.sha512",
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",

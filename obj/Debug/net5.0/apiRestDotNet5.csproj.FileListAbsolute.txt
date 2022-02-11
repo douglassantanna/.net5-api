@@ -50,3 +50,4 @@ C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\AutoMapper.dll
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\Castle.Core.dll
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Alura\planoEstudoBackEnd\apiRestDotNet5\bin\Debug\net5.0\FluentResults.dll

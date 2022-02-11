@@ -1,7 +1,9 @@
 ﻿using apiRestDotNet5.Data;
 using apiRestDotNet5.Data.DTOs;
 using apiRestDotNet5.Models;
+using apiRestDotNet5.Services;
 using AutoMapper;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,66 +14,41 @@ namespace apiRestDotNet5.Controllers
     [Route("[controller]")]
     public class CinemaController : ControllerBase
     {
-        private DataContext _context;
-        private IMapper _mapper;
+        private CinemaService _cinemaService;
 
-        public CinemaController(DataContext context, IMapper mapper)
+        public CinemaController(CinemaService cinemaService)
         {
-            _context = context;
-            _mapper = mapper;
+           _cinemaService = cinemaService;
         }
 
         [HttpGet]
         public IActionResult RecuperarCinemas([FromQuery] string nomeDoFilme)
         {
-            List<Cinema> cinemas = _context.Cinemas.ToList();
-            if(cinemas == null)
-            {
-                return NotFound();
-            }
-            if(!string.IsNullOrEmpty(nomeDoFilme))
-            {
-                IEnumerable<Cinema> query = from cinema in cinemas
-                where cinema.Sessoes.Any(sessao =>
-                sessao.Filme.Titulo == nomeDoFilme)
-                select cinema;
-                cinemas = query.ToList();
-            }
-            List<ConsultarCinemaDTO> cinemaDTO = _mapper.Map<List<ConsultarCinemaDTO>>(cinemas);
-            return Ok(cinemaDTO);
+            List<ConsultarCinemaDTO> consultarCinemaDTO = _cinemaService.RecuperarCinemas(nomeDoFilme);
+            if(consultarCinemaDTO != null) return Ok(consultarCinemaDTO);
+            return NotFound();
         }
 
         [HttpGet("{id}")]
         public IActionResult RecuperarCinemasPorId(int id)
         {
-            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if (cinema != null)
-            {
-                ConsultarCinemaDTO cinemaDto = _mapper.Map<ConsultarCinemaDTO>(cinema);
-                return Ok(cinemaDto);
-            }
+            ConsultarCinemaDTO consultarCinemaDTO = _cinemaService.RecuperarCinemaPorId(id);
+            if(consultarCinemaDTO != null) return Ok(consultarCinemaDTO);
             return NotFound();
         }
         
         [HttpPost]
         public IActionResult AdicionarCinema([FromBody] CriarCinemaDTO cinemaDto)
         {
-            Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
-            _context.Cinemas.Add(cinema);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(RecuperarCinemasPorId), new { Id = cinema.Id }, cinema);
+            ConsultarCinemaDTO consultarCinemaDTO = _cinemaService.AdicionarCinema(cinemaDto);
+            return CreatedAtAction(nameof(RecuperarCinemasPorId), new { Id = consultarCinemaDTO.Id }, consultarCinemaDTO);
         }
 
         [HttpPut("{id}")]
         public IActionResult AtualizarCinema(int id, [FromBody] AtualizarCinemaDTO cinemaDto)
         {
-            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if (cinema == null)
-            {
-                return NotFound();
-            }
-            _mapper.Map(cinemaDto, cinema);
-            _context.SaveChanges();
+            Result result = _cinemaService.AtualizarCinema(id, cinemaDto);
+            if(result.IsFailed) return NotFound();
             return NoContent();
         }
 
@@ -79,13 +56,8 @@ namespace apiRestDotNet5.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletarCinema(int id)
         {
-            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if (cinema == null)
-            {
-                return NotFound();
-            }
-            _context.Remove(cinema);
-            _context.SaveChanges();
+            Result result = _cinemaService.DeletarCinema(id);
+            if(result.IsFailed) return NotFound();
             return NoContent();
         }
 
