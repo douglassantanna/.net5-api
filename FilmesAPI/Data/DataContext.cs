@@ -1,7 +1,7 @@
-using apiRestDotNet5.Models;
+using FilmesAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace apiRestDotNet5.Data
+namespace FilmesAPI.Data
 {
     public class DataContext : DbContext
     {

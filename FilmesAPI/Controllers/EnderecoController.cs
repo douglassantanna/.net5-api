@@ -1,6 +1,6 @@
-﻿using apiRestDotNet5.Data;
-using apiRestDotNet5.Data.DTOs;
-using apiRestDotNet5.Models;
+﻿using FilmesAPI.Data;
+using FilmesAPI.Data.DTOs;
+using FilmesAPI.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

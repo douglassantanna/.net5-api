@@ -1,4 +1,4 @@
-﻿namespace apiRestDotNet5.Data.DTOs
+﻿namespace FilmesAPI.Data.DTOs
 {
     public class CriarEnderecoDTO
     {

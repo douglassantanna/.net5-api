@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using apiRestDotNet5.Data.DTOs;
-using apiRestDotNet5.Models;
+using FilmesAPI.Data.DTOs;
+using FilmesAPI.Models;
 using AutoMapper;
 
-namespace apiRestDotNet5.PerfisAutoMapper
+namespace FilmesAPI.PerfisAutoMapper
 {
     public class SessaoPerfil : Profile
     {

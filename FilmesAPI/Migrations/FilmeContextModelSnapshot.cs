@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using apiRestDotNet5.Data;
+using FilmesAPI.Data;
 
-namespace apiRestDotNet5.Migrations
+namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class FilmeContextModelSnapshot : ModelSnapshot

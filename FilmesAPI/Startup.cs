@@ -1,6 +1,6 @@
 using System;
-using apiRestDotNet5.Data;
-using apiRestDotNet5.Services;
+using FilmesAPI.Data;
+using FilmesAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace apiRestDotNet5
+namespace FilmesAPI
 {
     public class Startup
     {

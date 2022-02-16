@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.EntityFrameworkCore.Metadata;
 
-namespace apiRestDotNet5.Migrations
+namespace FilmesAPI.Migrations
 {
     public partial class Cinema : Migration
     {

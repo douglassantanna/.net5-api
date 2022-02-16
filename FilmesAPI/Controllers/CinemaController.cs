@@ -1,14 +1,10 @@
-﻿using apiRestDotNet5.Data;
-using apiRestDotNet5.Data.DTOs;
-using apiRestDotNet5.Models;
-using apiRestDotNet5.Services;
-using AutoMapper;
+﻿using FilmesAPI.Data.DTOs;
+using FilmesAPI.Services;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace apiRestDotNet5.Controllers
+namespace FilmesAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,7 +1,7 @@
 ﻿using System;
-using apiRestDotNet5.Models;
+using FilmesAPI.Models;
 
-namespace apiRestDotNet5.Data.DTOs
+namespace FilmesAPI.Data.DTOs
 {
     public class ConsultarSessaoDTO
     {

@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using apiRestDotNet5.Data;
-using apiRestDotNet5.Data.DTOs;
-using apiRestDotNet5.Models;
+using FilmesAPI.Data;
+using FilmesAPI.Data.DTOs;
+using FilmesAPI.Models;
 using AutoMapper;
 using FluentResults;
 
-namespace apiRestDotNet5.Services
+namespace FilmesAPI.Services
 {
     public class CinemaService
     {

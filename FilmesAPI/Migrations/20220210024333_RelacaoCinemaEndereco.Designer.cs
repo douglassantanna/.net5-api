@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using apiRestDotNet5.Data;
+using FilmesAPI.Data;
 
-namespace apiRestDotNet5.Migrations
+namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20220210024333_RelacaoCinemaEndereco")]

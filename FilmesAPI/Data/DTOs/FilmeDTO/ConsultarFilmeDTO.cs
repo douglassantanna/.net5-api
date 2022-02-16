@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace apiRestDotNet5.Data.DTOs
+namespace FilmesAPI.Data.DTOs
 {
     public class ConsultarFilmeDTO
     {

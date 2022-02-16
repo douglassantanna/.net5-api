@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace apiRestDotNet5.Models
+namespace FilmesAPI.Models
 {
     public class Gerente
     {
