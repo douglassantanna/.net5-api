@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using UsuariosAPI.Data;
+using UsuariosAPI.Servicos;
 
 namespace UsuariosAPI
 {
@@ -23,6 +24,7 @@ namespace UsuariosAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<CadastroServico, CadastroServico>();
             services.AddDbContext<UsuarioDbContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
             services.AddIdentity<IdentityUser<int>, IdentityRole<int>>().AddEntityFrameworkStores<UsuarioDbContext>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

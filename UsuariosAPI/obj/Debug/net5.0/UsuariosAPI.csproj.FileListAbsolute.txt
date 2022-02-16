@@ -55,3 +55,4 @@ C:\Alura\planoEstudoBackEnd\apiRestDotNet5\UsuariosAPI\obj\Debug\net5.0\Usuarios
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\UsuariosAPI\obj\Debug\net5.0\ref\UsuariosAPI.dll
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\UsuariosAPI\obj\Debug\net5.0\UsuariosAPI.pdb
 C:\Alura\planoEstudoBackEnd\apiRestDotNet5\UsuariosAPI\obj\Debug\net5.0\UsuariosAPI.genruntimeconfig.cache
+C:\Alura\planoEstudoBackEnd\apiRestDotNet5\UsuariosAPI\bin\Debug\net5.0\FluentResults.dll
