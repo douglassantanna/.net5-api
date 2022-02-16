@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\apiRestDotNet5.csproj": {}
+    "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj": {}
   },
   "projects": {
-    "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\apiRestDotNet5.csproj": {
+    "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\apiRestDotNet5.csproj",
+        "projectUniqueName": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
         "projectName": "apiRestDotNet5",
-        "projectPath": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\apiRestDotNet5.csproj",
+        "projectPath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
         "packagesPath": "C:\\Users\\DouglasCraici\\.nuget\\packages\\",
-        "outputPath": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\obj\\",
+        "outputPath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DouglasCraici\\AppData\\Roaming\\NuGet\\NuGet.Config"

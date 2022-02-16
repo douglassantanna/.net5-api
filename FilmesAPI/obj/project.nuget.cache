@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2kfC/X6gqJVHBfButv+/5/EqBx6BPee47Y/XVAYl2L4BWD2QV6t11D+scIOCntyleXNhc5F9kTApbqSySoBLxQ==",
+  "dgSpecHash": "WATRdaf9sOPLkkVdssSjWqXU9C0+i7NAfwbqcGeZ7H17caXp2lFPNzV+o029QJLP9PcwDHlLdLTgdpqfrw0dyQ==",
   "success": true,
-  "projectFilePath": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\apiRestDotNet5.csproj",
+  "projectFilePath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\DouglasCraici\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
