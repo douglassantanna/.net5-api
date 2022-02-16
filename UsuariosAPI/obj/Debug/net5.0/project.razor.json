@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
+  "FilePath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\UsuariosAPI\\UsuariosAPI.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15616,7 +15616,7 @@
     ],
     "CSharpLanguageVersion": 900
   },
-  "RootNamespace": "apiRestDotNet5",
+  "RootNamespace": "UsuariosAPI",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
