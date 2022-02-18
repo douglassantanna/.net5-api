@@ -26,6 +26,7 @@ namespace UsuariosAPI
         {
             services.AddScoped<CadastroServico, CadastroServico>();
             services.AddScoped<LoginServico, LoginServico>();
+            services.AddScoped<TokenServico, TokenServico>();
             services.AddDbContext<UsuarioDbContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
             services.AddIdentity<IdentityUser<int>, IdentityRole<int>>().AddEntityFrameworkStores<UsuarioDbContext>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

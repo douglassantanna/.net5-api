@@ -20,8 +20,8 @@ namespace UsuariosAPI.Controllers
         public IActionResult LogarUsuario(LoginRequest loginRequest)
         {
             Result result = _loginServico.LogarUsuario(loginRequest);
-            if(result.IsFailed) return Unauthorized();
-            return Ok();
+            if(result.IsFailed) return Unauthorized(result.Errors);
+            return Ok(result.Successes);
         }
     }
 }
