@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
@@ -15,10 +16,12 @@ namespace UsuariosAPI.Servicos
     {
         private IMapper _mapper;
         private UserManager<IdentityUser<int>> _userManager;
-        public CadastroServico(IMapper mapper, UserManager<IdentityUser<int>> userManager)
+        private EmailServico _emailServico;
+        public CadastroServico(IMapper mapper, UserManager<IdentityUser<int>> userManager, EmailServico emailServico)
         {
             _userManager = userManager;
             _mapper = mapper;
+            _emailServico = emailServico;
         }
         public Result CadastrarUsuario(CriarUsuarioDTO criarUsuarioDTO)
         {
@@ -30,6 +33,8 @@ namespace UsuariosAPI.Servicos
             if (resultadoIdentity.Result.Succeeded)
             {
                 var code = _userManager.GenerateEmailConfirmationTokenAsync(usuarioIdentity).Result;
+                var encodedCode = HttpUtility.UrlDecode(code);
+                 _emailServico.EnviarEmail(new [] {usuarioIdentity.Email}, "Link de ativação", usuarioIdentity.Id, encodedCode);
                 return Result.Ok().WithSuccess(code);
             }
 
@@ -40,6 +45,7 @@ namespace UsuariosAPI.Servicos
         {
             var IdentityUser = _userManager.Users.FirstOrDefault(usuario => usuario.Id == confirmarEmailRequest.UsuarioId);
             var IdentityResult = _userManager.ConfirmEmailAsync(IdentityUser, confirmarEmailRequest.CodigoDeAtivacao).Result;
+           
             if(IdentityResult.Succeeded)
             {
                 return Result.Ok();

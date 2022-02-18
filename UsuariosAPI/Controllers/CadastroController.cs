@@ -22,7 +22,7 @@ namespace UsuariosAPI.Controllers
         public IActionResult CadastrarUsuario(CriarUsuarioDTO criarUsuarioDTO)
         {
             Result result = _cadastroServico.CadastrarUsuario(criarUsuarioDTO);
-            if(result.IsFailed) return StatusCode(500);
+            if (result.IsFailed) return StatusCode(500);
             return Ok(result.Successes);
         }
 
@@ -30,7 +30,7 @@ namespace UsuariosAPI.Controllers
         public IActionResult ConfirmarEmail(ConfirmarEmailRequest confirmarEmailRequest)
         {
             Result result = _cadastroServico.ConfirmarEmailUsuario(confirmarEmailRequest);
-            if(result.IsFailed) return StatusCode(500);
+            if (result.IsFailed) return StatusCode(500);
             return Ok(result.Successes);
         }
     }
