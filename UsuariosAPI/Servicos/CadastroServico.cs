@@ -22,7 +22,7 @@ namespace UsuariosAPI.Servicos
         {
             Usuario usuario = _mapper.Map<Usuario>(criarUsuarioDTO);
             IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario);
-            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, criarUsuarioDTO.Senha);
+            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, criarUsuarioDTO.Password);
             if(resultadoIdentity.Result.Succeeded) return Result.Ok();
             return Result.Fail("Falha ao cadastrar usuário.");
         }
