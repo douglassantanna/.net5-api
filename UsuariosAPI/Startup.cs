@@ -29,7 +29,9 @@ namespace UsuariosAPI
             services.AddScoped<LogoutServico, LogoutServico>();
             services.AddScoped<TokenServico, TokenServico>();
             services.AddDbContext<UsuarioDbContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>().AddEntityFrameworkStores<UsuarioDbContext>();
+            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
+                opt => opt.SignIn.RequireConfirmedEmail = true
+            ).AddEntityFrameworkStores<UsuarioDbContext>().AddDefaultTokenProviders();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddSwaggerGen(c =>
