@@ -1,7 +1,9 @@
+using System;
 using System.Linq;
 using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
+using UsuariosAPI.Data.DTOs.Request;
 using UsuariosAPI.Data.Request;
 using UsuariosAPI.Models;
 
@@ -27,6 +29,41 @@ namespace UsuariosAPI.Servicos
                 return Result.Ok().WithSuccess(token.Value);
             }
             return Result.Fail("Login falhou");
+        }
+
+        public Result SolicitarNovaSenhaUsuario(SolicitarNovaSenhaRequest request)
+        {
+            IdentityUser<int> identityUser = RecuperarUsuarioPorEmail(request.Email);
+
+            if(identityUser != null)
+            {
+                string codigoDeRecuperacao = _signInManager.UserManager.GeneratePasswordResetTokenAsync(identityUser).Result;
+                return Result.Ok().WithSuccess(codigoDeRecuperacao);
+
+            }
+            return Result.Fail("Erro ao redefinir senha");
+        }
+
+        public Result DefinirNovaSenhaUsuario(DefinirNovaSenhaRequest request)
+        {
+            IdentityUser<int> identityUser = RecuperarUsuarioPorEmail(request.Email);
+
+            IdentityResult identityResult = _signInManager
+            .UserManager
+            .ResetPasswordAsync(identityUser, request.Token, request.Password)
+            .Result;
+
+            if (identityResult.Succeeded) return Result.Ok().WithSuccess("Senha redefinida");
+            return Result.Fail("Ocorreu um erro");
+
+        }
+
+        private IdentityUser<int> RecuperarUsuarioPorEmail(string email)
+        {
+            return _signInManager
+                        .UserManager
+                        .Users
+                        .FirstOrDefault(x => x.NormalizedEmail == email.ToUpper());
         }
     }
 }
