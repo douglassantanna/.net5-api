@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using FilmesAPI.Data.DTOs;
 using FilmesAPI.Services;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmesAPI.Controllers
@@ -32,6 +33,7 @@ namespace FilmesAPI.Controllers
             return NotFound();
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IActionResult AdicionarFilme([FromBody] CriarFilmeDTO filmeDTO)
         {
             ConsultarFilmeDTO consultarFilmeDTO =  _filmeService.AdicionarFilme(filmeDTO);

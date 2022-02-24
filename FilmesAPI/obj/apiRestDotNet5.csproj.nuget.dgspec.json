@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj": {}
+    "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj": {}
   },
   "projects": {
-    "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj": {
+    "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
+        "projectUniqueName": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
         "projectName": "apiRestDotNet5",
-        "projectPath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
+        "projectPath": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\apiRestDotNet5.csproj",
         "packagesPath": "C:\\Users\\DouglasCraici\\.nuget\\packages\\",
-        "outputPath": "c:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\obj\\",
+        "outputPath": "C:\\Alura\\planoEstudoBackEnd\\apiRestDotNet5\\FilmesAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DouglasCraici\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,6 +45,14 @@
             "FluentResults": {
               "target": "Package",
               "version": "[2.5.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
