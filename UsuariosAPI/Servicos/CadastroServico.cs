@@ -34,8 +34,6 @@ namespace UsuariosAPI.Servicos
             Task<IdentityResult> resultadoIdentity =
             _userManager.CreateAsync(usuarioIdentity, criarUsuarioDTO.Password);
 
-            var criarFuncaoResult = _roleManager.CreateAsync(new IdentityRole<int>("admin")).Result;
-            var funcaoUsuarioResult = _userManager.AddToRoleAsync(usuarioIdentity, "admin").Result;
             if (resultadoIdentity.Result.Succeeded)
             {
                 var code = _userManager.GenerateEmailConfirmationTokenAsync(usuarioIdentity).Result;
