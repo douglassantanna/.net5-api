@@ -17,11 +17,13 @@ namespace UsuariosAPI.Servicos
         private IMapper _mapper;
         private UserManager<IdentityUser<int>> _userManager;
         private EmailServico _emailServico;
-        public CadastroServico(IMapper mapper, UserManager<IdentityUser<int>> userManager, EmailServico emailServico)
+        private RoleManager<IdentityRole<int>> _roleManager;
+        public CadastroServico(IMapper mapper, UserManager<IdentityUser<int>> userManager, EmailServico emailServico, RoleManager<IdentityRole<int>> roleManager = null)
         {
             _userManager = userManager;
             _mapper = mapper;
             _emailServico = emailServico;
+            _roleManager = roleManager;
         }
         public Result CadastrarUsuario(CriarUsuarioDTO criarUsuarioDTO)
         {
@@ -29,7 +31,11 @@ namespace UsuariosAPI.Servicos
 
             IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario);
 
-            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, criarUsuarioDTO.Password);
+            Task<IdentityResult> resultadoIdentity =
+            _userManager.CreateAsync(usuarioIdentity, criarUsuarioDTO.Password);
+
+            var criarFuncaoResult = _roleManager.CreateAsync(new IdentityRole<int>("admin")).Result;
+            var funcaoUsuarioResult = _userManager.AddToRoleAsync(usuarioIdentity, "admin").Result;
             if (resultadoIdentity.Result.Succeeded)
             {
                 var code = _userManager.GenerateEmailConfirmationTokenAsync(usuarioIdentity).Result;

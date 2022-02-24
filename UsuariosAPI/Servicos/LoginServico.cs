@@ -24,8 +24,12 @@ namespace UsuariosAPI.Servicos
             var resultadoIdentity = _signInManager.PasswordSignInAsync(loginRequest.Username, loginRequest.Password, false, false);
             if (resultadoIdentity.Result.Succeeded)
             {
-                var IdentityUser = _signInManager.UserManager.Users.FirstOrDefault(usuario => usuario.NormalizedUserName == loginRequest.Username.ToUpper());
-                Token token = _tokenService.CriarToken(IdentityUser);
+                var IdentityUser =
+                _signInManager.UserManager.Users
+                .FirstOrDefault(usuario => usuario.NormalizedUserName == loginRequest.Username.ToUpper());
+                
+                Token token = _tokenService.CriarToken(IdentityUser,
+                _signInManager.UserManager.GetRolesAsync(IdentityUser).Result.FirstOrDefault());
                 return Result.Ok().WithSuccess(token.Value);
             }
             return Result.Fail("Login falhou");
