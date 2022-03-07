@@ -13,8 +13,8 @@ namespace UsuariosAPI.Servicos
     public class LoginServico
     {
         private TokenServico _tokenService;
-        private SignInManager<IdentityUser<int>> _signInManager;
-        public LoginServico(SignInManager<IdentityUser<int>> signInManager, TokenServico tokenService)
+        private SignInManager<CustomIdentityUser> _signInManager;
+        public LoginServico(SignInManager<CustomIdentityUser> signInManager, TokenServico tokenService)
         {
             _signInManager = signInManager;
             _tokenService = tokenService;
@@ -37,7 +37,7 @@ namespace UsuariosAPI.Servicos
 
         public Result SolicitarNovaSenhaUsuario(SolicitarNovaSenhaRequest request)
         {
-            IdentityUser<int> identityUser = RecuperarUsuarioPorEmail(request.Email);
+            CustomIdentityUser identityUser = RecuperarUsuarioPorEmail(request.Email);
 
             if(identityUser != null)
             {
@@ -50,7 +50,7 @@ namespace UsuariosAPI.Servicos
 
         public Result DefinirNovaSenhaUsuario(DefinirNovaSenhaRequest request)
         {
-            IdentityUser<int> identityUser = RecuperarUsuarioPorEmail(request.Email);
+            CustomIdentityUser identityUser = RecuperarUsuarioPorEmail(request.Email);
 
             IdentityResult identityResult = _signInManager
             .UserManager
@@ -62,7 +62,7 @@ namespace UsuariosAPI.Servicos
 
         }
 
-        private IdentityUser<int> RecuperarUsuarioPorEmail(string email)
+        private CustomIdentityUser RecuperarUsuarioPorEmail(string email)
         {
             return _signInManager
                         .UserManager

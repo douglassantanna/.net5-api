@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using UsuariosAPI.Data;
+using UsuariosAPI.Models;
 using UsuariosAPI.Servicos;
 
 namespace UsuariosAPI
@@ -30,7 +31,7 @@ namespace UsuariosAPI
             services.AddScoped<LogoutServico, LogoutServico>();
             services.AddScoped<TokenServico, TokenServico>();
             services.AddDbContext<UsuarioDbContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
+            services.AddIdentity<CustomIdentityUser, IdentityRole<int>>(
                 opt => opt.SignIn.RequireConfirmedEmail = true
             ).AddEntityFrameworkStores<UsuarioDbContext>().AddDefaultTokenProviders();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

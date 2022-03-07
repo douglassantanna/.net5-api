@@ -10,7 +10,7 @@ namespace UsuariosAPI.Servicos
 {
     public class TokenServico
     {
-        public Token CriarToken(IdentityUser<int> usuario, string funcao)
+        public Token CriarToken(CustomIdentityUser usuario, string funcao)
         {
             Claim[] direitoUsuario = new Claim[]
             {

@@ -1,5 +1,6 @@
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
+using UsuariosAPI.Models;
 
 namespace UsuariosAPI.Servicos
 {
@@ -7,8 +8,8 @@ namespace UsuariosAPI.Servicos
     public class LogoutServico
     {
         private TokenServico _tokenService;
-        private SignInManager<IdentityUser<int>> _signInManager;
-        public LogoutServico(SignInManager<IdentityUser<int>> signInManager, TokenServico tokenService)
+        private SignInManager<CustomIdentityUser> _signInManager;
+        public LogoutServico(SignInManager<CustomIdentityUser> signInManager, TokenServico tokenService)
         {
             _signInManager = signInManager;
             _tokenService = tokenService;

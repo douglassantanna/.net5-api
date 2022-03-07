@@ -15,21 +15,20 @@ namespace UsuariosAPI.Servicos
     public class CadastroServico
     {
         private IMapper _mapper;
-        private UserManager<IdentityUser<int>> _userManager;
+        private UserManager<CustomIdentityUser> _userManager;
         private EmailServico _emailServico;
         private RoleManager<IdentityRole<int>> _roleManager;
-        public CadastroServico(IMapper mapper, UserManager<IdentityUser<int>> userManager, EmailServico emailServico, RoleManager<IdentityRole<int>> roleManager = null)
+        public CadastroServico(IMapper mapper, UserManager<CustomIdentityUser> userManager, EmailServico emailServico, RoleManager<IdentityRole<int>> roleManager = null)
         {
             _userManager = userManager;
             _mapper = mapper;
             _emailServico = emailServico;
-            _roleManager = roleManager;
         }
         public Result CadastrarUsuario(CriarUsuarioDTO criarUsuarioDTO)
         {
             Usuario usuario = _mapper.Map<Usuario>(criarUsuarioDTO);
 
-            IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario);
+            CustomIdentityUser usuarioIdentity = _mapper.Map<CustomIdentityUser>(usuario);
 
             Task<IdentityResult> resultadoIdentity =
             _userManager.CreateAsync(usuarioIdentity, criarUsuarioDTO.Password);
