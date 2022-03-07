@@ -18,6 +18,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Policy = "idadeMinima")]
         public IActionResult RecuperarFilmePorId(int id)
         {
             ConsultarFilmeDTO consultarFilmeDTO = _filmeService.RecuperarFilmesPorId(id);
@@ -26,7 +27,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "admim , regular")]
+        [Authorize(Roles = "admim , regular", Policy = "IdadeMinima")]
         public IActionResult RecuperarFilmes([FromQuery] int? classificacaoEtaria = null)
         {
             List<ConsultarFilmeDTO> consultarFilmeDTOs = _filmeService.RecuperarFilmes(classificacaoEtaria);

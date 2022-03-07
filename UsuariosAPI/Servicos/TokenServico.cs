@@ -2,7 +2,6 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using UsuariosAPI.Models;
 
@@ -16,7 +15,8 @@ namespace UsuariosAPI.Servicos
             {
                new Claim("username", usuario.UserName),
                new Claim("id", usuario.Id.ToString()),
-               new Claim(ClaimTypes.Role, funcao)
+               new Claim(ClaimTypes.Role, funcao),
+               new Claim(ClaimTypes.DateOfBirth, usuario.DataDeNascimento.ToString())
             };
 
             var chave = new SymmetricSecurityKey(
